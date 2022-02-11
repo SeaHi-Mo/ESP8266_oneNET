@@ -1,8 +1,10 @@
 
-set(include_dirs app/include oneNET_token oneNET_token/cipher)
-file(GLOB_RECURSE srcs app/src/*.c oneNET_token/*.c   oneNET_token/cipher/*.c)
-
-idf_component_register(SRCS ${srcs} 
-                    INCLUDE_DIRS ${include_dirs}
+idf_component_register(SRCS "app/src/app_mqtt_code.c" 
+                            "oneNET_token/initialToken.c"
+                            "oneNET_token/cipher/hmac.c"
+                            "oneNET_token/cipher/md5.c"
+                           "oneNET_token/cipher/sha1.c"
+                            "oneNET_token/cipher/sha256.c"
+                    INCLUDE_DIRS "app/include" "oneNET_token" "oneNET_token/cipher"
                     REQUIRES mbedtls nvs_flash protocol_examples_common mqtt 
                      )

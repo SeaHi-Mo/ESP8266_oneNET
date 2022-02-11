@@ -1,1 +1,1 @@
-.  /home/seahi/Desktop/ESP/ESP32/esp-idf/export.sh
+. /home/seahi/Desktop/ESP/ESP8266_RTOS_SDK/export.sh
