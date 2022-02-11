@@ -22,7 +22,7 @@ extern const uint8_t client_cert_pem_end[] asm("_binary_MQTTS_certificate_pem_en
 static esp_err_t oneNET_mqtt_event_handler(esp_mqtt_event_handle_t event)
 {
     esp_mqtt_client_handle_t client = event->client;
-    int msg_id;
+
     // your_context_t *context = event->context;
     switch (event->event_id) {
         case MQTT_EVENT_CONNECTED:
@@ -72,10 +72,10 @@ esp_err_t app_open_mqtt_connection(oneNET_connect_msg_t* oneNET_connect_msg)
         .client_id = oneNET_connect_msg->device_name,
         .username = oneNET_connect_msg->produt_id,
         .password = oneNET_connect_msg->token,
-
     };
 
     esp_mqtt_client_handle_t oneNET_client_handler = esp_mqtt_client_init(&oneNET_client_cfg);
+
     esp_mqtt_client_start(oneNET_client_handler);
 
     return ESP_OK;
